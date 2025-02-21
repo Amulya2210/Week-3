@@ -1,0 +1,25 @@
+
+create database week3;
+use week3;
+
+CREATE TABLE Faculty (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    pan VARCHAR(20) UNIQUE NOT NULL,
+    mob VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE Course (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    duration INT NOT NULL
+);
+
+CREATE TABLE Faculty_Course (
+    faculty_id INT,
+    course_id INT,
+    PRIMARY KEY (faculty_id, course_id),
+    FOREIGN KEY (faculty_id) REFERENCES Faculty(id),
+    FOREIGN KEY (course_id) REFERENCES Course(id)
+);
